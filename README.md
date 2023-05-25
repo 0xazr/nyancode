@@ -11,3 +11,5 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 - format pertukaran data
 
 - save key: AES
+
+- check Blowfish algo
