@@ -1,13 +1,38 @@
 <template>
   <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <label for="">TEXT</label>
+  <input type="text" name="" v-model="app.text.text" id="" />
+  <label for="">TYPE</label>
+  <input type="text" name="" v-model="app.text.type" id="" />
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import { useApp, useSocketIO } from "./store/index";
 
 export default {
   components: {
     HelloWorld,
+  },
+  setup() {
+    const app = useApp();
+    const socket = useSocketIO();
+
+    return {
+      app,
+      socket,
+    };
+  },
+  async beforeMount() {
+    this.socket.setupSocketConnection();
+  },
+  watch: {
+    "app.text": {
+      handler() {
+        this.socket.emitUIToServer(this.socket.emitter.fe2be, this.app.text);
+      },
+      deep: true,
+    },
   },
 };
 </script>

@@ -2,14 +2,15 @@
   "name": "nyancode",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "server": "nodemon ./src/server/index.js",
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "express": "^4.18.2",
     "flowbite": "^1.6.5",
     "nodemon": "^2.0.22",
     "pinia": "^2.1.3",
