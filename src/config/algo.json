@@ -1,0 +1,96 @@
+[
+  {
+    "name": "md5",
+    "type": ["hash"],
+    "key": false
+  },
+  {
+    "name": "SHA1",
+    "type": ["hash"],
+    "key": false
+  },
+  {
+    "name": "SHA256",
+    "type": ["hash"],
+    "key": false
+  },
+  {
+    "name": "SHA512",
+    "type": ["hash"],
+    "key": false
+  },
+  {
+    "name": "SHA3",
+    "type": ["hash"],
+    "key": false
+  },
+  {
+    "name": "RIPEMD-160",
+    "type": ["hash"],
+    "key": false
+  },
+  {
+    "name": "hmac md5",
+    "type": ["hash"],
+    "key": true
+  },
+  {
+    "name": "hmac SHA1",
+    "type": ["hash"],
+    "key": true
+  },
+  {
+    "name": "hmac SHA256",
+    "type": ["hash"],
+    "key": true
+  },
+  {
+    "name": "hmac SHA512",
+    "type": ["hash"],
+    "key": true
+  },
+  {
+    "name": "hmac SHA3",
+    "type": ["hash"],
+    "key": true
+  },
+  {
+    "name": "hmac RIPEMD-160",
+    "type": ["hash"],
+    "key": true
+  },
+  {
+    "name": "aes",
+    "type": ["encrypt", "decrypt"],
+    "key": true
+  },
+  {
+    "name": "des",
+    "type": ["encrypt", "decrypt"],
+    "key": true
+  },
+  {
+    "name": "triple des",
+    "type": ["encrypt", "decrypt"],
+    "key": true
+  },
+  {
+    "name": "hex string",
+    "type": ["hex2string", "string2hex"]
+  },
+  {
+    "name": "rabbit",
+    "type": ["encrypt", "decrypt"],
+    "key": true
+  },
+  {
+    "name": "RC4",
+    "type": ["encrypt", "decrypt"],
+    "key": true
+  },
+  {
+    "name": "RC4Drop",
+    "type": ["encrypt", "decrypt"],
+    "key": true
+  }
+]

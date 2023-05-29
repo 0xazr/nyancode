@@ -1,9 +1,25 @@
 <template>
   <h1 class="text-3xl font-bold underline">Hello world!</h1>
   <label for="">TEXT</label>
-  <input type="text" name="" v-model="app.text.text" id="" />
-  <label for="">TYPE</label>
-  <input type="text" name="" v-model="app.text.type" id="" />
+  <input type="text" name="" v-model="app.req.text" id="" />
+  <br />
+  <div v-for="(algorithm, index) in app.algo" :key="index">
+    <label :for="'algo' + (index + 1)">Algorithm {{ algorithm.name }}:</label>
+    <select :id="'algo' + (index + 1)" v-model="app.temp.selected_types[index]">
+      <option
+        v-for="(type, index) in algorithm.type"
+        :value="type"
+        :key="index"
+      >
+        {{ type }}
+      </option>
+    </select>
+    <input type="text" name="" v-model="app.temp.keys[index]" id="" />
+  </div>
+  <label for="">Respon</label>
+  <div>{{ app.respon }}</div>
+  <hr />
+  <div>{{ app.temp.selected_types }}</div>
 </template>
 
 <script>
@@ -25,11 +41,44 @@ export default {
   },
   async beforeMount() {
     this.socket.setupSocketConnection();
+
+    const EMITTER = this.socket.emitter;
+    this.socket.socket.on(EMITTER.be2fe, (data) => {
+      // console.log(data);
+      this.app.respon = data;
+    });
   },
   watch: {
-    "app.text": {
+    "app.temp": {
       handler() {
-        this.socket.emitUIToServer(this.socket.emitter.fe2be, this.app.text);
+        let algo = [];
+        for (let i = 0; i < this.app.algo.length; i++) {
+          if (this.app.temp.selected_types[i]) {
+            if (this.app.algo[i].key) {
+              console.log(this.app.algo[i].key);
+              algo.push({
+                name: this.app.algo[i].name,
+                type: this.app.temp.selected_types[i],
+                key: this.app.temp.keys[i],
+              });
+            } else {
+              algo.push({
+                name: this.app.algo[i].name,
+                type: this.app.temp.selected_types[i],
+              });
+            }
+          }
+        }
+        this.app.req.algo = algo;
+        this.socket.emitUIToServer(this.socket.emitter.fe2be, this.app.req);
+      },
+      deep: true,
+    },
+    "app.req": {
+      handler() {
+        if (this.app.req.algo.length != 0) {
+          this.socket.emitUIToServer(this.socket.emitter.fe2be, this.app.req);
+        }
       },
       deep: true,
     },

@@ -10,6 +10,11 @@ class WebSocket {
     ...TEXT,
   };
 
+  EMITTER = {
+    fe2be: "fe2be",
+    be2fe: "be2fe",
+  };
+
   constructor() {
     const THAT = this;
     const EXPRESS = require("express");

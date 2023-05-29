@@ -1,15 +1,21 @@
 import { io } from "socket.io-client";
 import { defineStore } from "pinia";
 import Config from "../config/setup.json";
+import Algo from "../config/algo.json";
 
 export const useApp = defineStore({
   id: "app",
   state: () => ({
-    text: {
+    req: {
       text: "",
-      type: "",
+      algo: [],
     },
-    respon: {},
+    respon: "",
+    temp: {
+      selected_types: [],
+      keys: [],
+    },
+    algo: Algo,
   }),
   actions: {},
 });
