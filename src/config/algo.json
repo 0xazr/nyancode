@@ -76,7 +76,8 @@
   },
   {
     "name": "hex string",
-    "type": ["hex2string", "string2hex"]
+    "type": ["toStr", "toHex"],
+    "key": false
   },
   {
     "name": "rabbit",
@@ -92,5 +93,15 @@
     "name": "RC4Drop",
     "type": ["encrypt", "decrypt"],
     "key": true
+  },
+  {
+    "name": "Base64",
+    "type": ["encrypt", "decrypt"],
+    "key": false
+  },
+  {
+    "name": "Hexdump",
+    "type": ["encrypt", "decrypt"],
+    "key": false
   }
 ]

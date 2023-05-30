@@ -1,5 +1,6 @@
 // const ALGO = require("../../config/algo.json");
 const CryptoJS = require("crypto-js");
+const algo = require("../algo/algo.js");
 class Generate {
   web_socket = require("./Websocket");
 
@@ -128,6 +129,38 @@ class Generate {
 
         case "hmac RIPEMD-160":
           respon = CryptoJS.HmacRIPEMD160(MESSAGE, key).toString;
+          break;
+
+        case "hex string":
+          if (ALGO[i].type == "toStr") {
+            respon = algo.HexString.hex2string(MESSAGE);
+          } else {
+            respon = algo.HexString.string2hex(MESSAGE);
+          }
+          break;
+
+        case "Base64":
+          if (ALGO[i].type == "encrypt") {
+            respon = algo.Base64.encode(MESSAGE);
+          } else {
+            respon = algo.Base64.decode(MESSAGE);
+          }
+          break;
+
+        case "Rot 13":
+          if (ALGO[i].type == "encrypt") {
+            respon = algo.Rot13.encode(MESSAGE);
+          } else {
+            respon = algo.Rot13.decode(MESSAGE);
+          }
+          break;
+
+        case "Hexdump":
+          if (ALGO[i].type == "encrypt") {
+            respon = algo.Hexdump.toHexdump(MESSAGE);
+          } else {
+            respon = algo.Hexdump.fromHexdump(MESSAGE);
+          }
           break;
 
         default:

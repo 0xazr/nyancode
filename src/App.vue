@@ -53,7 +53,7 @@ export default {
       handler() {
         let algo = [];
         for (let i = 0; i < this.app.algo.length; i++) {
-          if (this.app.temp.selected_types[i]) {
+          if (this.app.temp.selected_types[i] && this.app.req.text != "") {
             if (this.app.algo[i].key) {
               console.log(this.app.algo[i].key);
               algo.push({
