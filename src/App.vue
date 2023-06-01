@@ -1,5 +1,9 @@
 <template>
   <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <hr />
+  <div>{{ app.temp.selected_types }}</div>
+  <div>{{ app.temp.keys }}</div>
+  <hr />
   <label for="">TEXT</label>
   <input type="text" name="" v-model="app.req.text" id="" />
   <br />
@@ -18,8 +22,6 @@
   </div>
   <label for="">Respon</label>
   <div>{{ app.respon }}</div>
-  <hr />
-  <div>{{ app.temp.selected_types }}</div>
 </template>
 
 <script>
@@ -44,7 +46,6 @@ export default {
 
     const EMITTER = this.socket.emitter;
     this.socket.socket.on(EMITTER.be2fe, (data) => {
-      // console.log(data);
       this.app.respon = data;
     });
   },
@@ -53,30 +54,23 @@ export default {
       handler() {
         let algo = [];
         for (let i = 0; i < this.app.algo.length; i++) {
-          if (this.app.temp.selected_types[i] && this.app.req.text != "") {
-            if (this.app.algo[i].key) {
-              console.log(this.app.algo[i].key);
+          if (this.app.algo[i].key) {
+            if (this.app.temp.selected_types[i] && this.app.temp.keys[i]) {
               algo.push({
                 name: this.app.algo[i].name,
                 type: this.app.temp.selected_types[i],
                 key: this.app.temp.keys[i],
               });
-            } else {
-              algo.push({
-                name: this.app.algo[i].name,
-                type: this.app.temp.selected_types[i],
-              });
             }
+          } else if (this.app.temp.selected_types[i]) {
+            algo.push({
+              name: this.app.algo[i].name,
+              type: this.app.temp.selected_types[i],
+            });
           }
         }
         this.app.req.algo = algo;
-        this.socket.emitUIToServer(this.socket.emitter.fe2be, this.app.req);
-      },
-      deep: true,
-    },
-    "app.req": {
-      handler() {
-        if (this.app.req.algo.length != 0) {
+        if (this.app.req.text != "") {
           this.socket.emitUIToServer(this.socket.emitter.fe2be, this.app.req);
         }
       },
