@@ -1,6 +1,8 @@
 <template>
   <headers />
-  <div class="container">adsdsf</div>
+  <div class="bg-container">
+    <img class="bg-image" src="../assets/bg.png" alt="background" />
+  </div>
   <footers />
 </template>
 

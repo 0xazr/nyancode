@@ -1,13 +1,15 @@
 <template>
-  <header class="bg-violet-950 p-7">
+  <header class="bg-gray-900 p-6">
     <div class="flex flex-row justify-between">
-      <div class="flex flex-row text-4xl font-bold font-poppins">
+      <div class="flex flex-row text-3xl font-bold font-poppins">
         <span class="text-purple-500">nyan</span
         ><span class="text-white">code</span>
         <img class="meong" src="../assets/meong.png" alt="meong" />
       </div>
       <div>
-        <span class="text-white">a</span>
+        <a href="#" class="text-gray-300 hover:text-white mr-4">Home</a>
+        <a href="#" class="text-gray-300 hover:text-white mr-4">Encoded</a>
+        <a href="#" class="text-gray-300 hover:text-white">Decoded</a>
       </div>
     </div>
   </header>
