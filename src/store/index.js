@@ -46,11 +46,8 @@ export const useApp = defineStore({
       }
       return bool;
     },
-    deleteAlgo(name) {
-      this.temp.selected_types = this.temp.selected_types.filter(
-        (item) => item.name != name
-      );
-      console.log(this.temp.selected_types);
+    deleteAlgo(index) {
+      this.temp.selected_types.splice(index, 1);
     },
     hideAlgo(name) {},
   },

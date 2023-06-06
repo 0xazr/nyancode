@@ -1,12 +1,17 @@
 <template>
+  <img
+    src="../assets/bg.png"
+    alt=""
+    class="absolute h-full w-full -z-10 overflow-hidden"
+  />
   <headers />
-  <div class="py-10 text-white bg-content">
+  <div class="py-13 text-white">
     <div
-      class="flex flex-wrap items-center justify-center mx-10 xl:space-x-10 xl:space-y-0 sm:space-x-0 sm:space-y-3 xl:flex-row sm:flex-col"
+      class="flex flex-wrap items-center justify-center mx-10 xl:space-x-10 xl:space-y-0 space-x-0 space-y-3 xl:flex-row flex-col"
     >
-      <div class="xl:w-2/6 sm:w-full card-one">
+      <div class="xl:w-2/6 w-full card-one">
         <div class="font-medium card-one-title font-poppins">
-          Choose an Algorithm- {{ app.search }}
+          Choose an Algorithm
         </div>
         <div
           class="self-center w-full my-4 border-1 border-[#5B5B6B] space-y-2"
@@ -39,7 +44,7 @@
             />
           </div>
           <div
-            class="flex flex-wrap items-center justify-center mx-4 space-x-3 space-y-2 overflow-y-scroll"
+            class="flex flex-wrap items-center justify-center mx-4 space-x-3 space-y-2 overflow-y-auto"
           >
             <div
               class="px-3 py-2 font-normal text-center cursor-pointer font-poppins rounded-xl"
@@ -51,12 +56,12 @@
               :key="index"
               @click="app.setAlgo(algo.name)"
             >
-              {{ algo.name.toUpperCase() }} - {{ app.findAlgo(algo.name) }}
+              {{ algo.name.toUpperCase() }}
             </div>
           </div>
         </div>
       </div>
-      <div class="xl:w-1/4 sm:w-full card-one flex items-center">
+      <div class="xl:w-1/4 w-full card-one flex items-center">
         <div
           class="card-one-title font-poppins flex items-center justify-center w-full px-4"
         >
@@ -88,7 +93,7 @@
           class="flex flex-col items-center justify-center w-full text-primary-gray overflow-y-auto"
         >
           <div
-            class="flex flex-col justify-start w-full px-3 py-2 bg-primary-green border-b-2 space-y-1 border-gray-300"
+            class="flex flex-col justify-start w-full px-3 py-2 bg-primary-green border-b-2 space-y-1 border-gray-300 h-full"
             :class="{
               'bg-primary-green': greenColor(index),
               'bg-primary-red': redColor(item.name, index),
@@ -148,7 +153,7 @@
                   ></path>
                 </svg>
                 <svg
-                  @click="app.deleteAlgo(item.name)"
+                  @click="app.deleteAlgo(index)"
                   fill="none"
                   stroke="currentColor"
                   class="w-4 h-4 cursor-pointer hover:text-red-500"
@@ -178,7 +183,7 @@
           <hr />
         </div>
       </div>
-      <div class="flex flex-col space-y-4 xl:w-1/4 sm:w-full h-96">
+      <div class="flex flex-col space-y-4 xl:w-1/4 w-full h-96">
         <div class="card-two">
           <div class="font-medium text-black card-two-title font-poppins">
             Input
@@ -197,25 +202,16 @@
             Output
           </div>
           <p
-            class="block mx-4 py-2.5 px-0 text-sm text-primary-gray font-normal bg-transparent border-0 border-gray-300 appearance-none dark:text-white focus:outline-none focus:ring-0 peer"
+            class="block mx-4 py-2.5 px-0 text-sm text-primary-gray font-normal bg-transparent border-0 border-gray-300 appearance-none dark:text-white focus:outline-none focus:ring-0 peer overflow-wrap break-word"
           >
             {{
               app.respon == "" ? "The results will come out here." : app.respon
             }}
           </p>
-          <!-- <input type="text" name="search" id="search"
-                        class="block mx-4 py-2.5 px-0 text-sm text-primary-gray font-normal bg-transparent border-0 border-gray-300 appearance-none dark:text-white focus:outline-none focus:ring-0 peer"
-                        placeholder="The results will come out here." /> -->
         </div>
       </div>
     </div>
   </div>
-  <div>==== req ===</div>
-  <div>{{ app.req.text }}</div>
-  <hr />
-  <div>{{ app.req.algo }}</div>
-  <div>==== temp ===</div>
-  <div>{{ app.temp }}</div>
   <footers />
 </template>
 

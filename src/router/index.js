@@ -9,9 +9,9 @@ const router = createRouter({
       component: () => import("../views/Tes2.vue"),
     },
     {
-      path: "/tes",
-      name: "tes",
-      component: () => import("../views/Home.vue"),
+      path: "/content",
+      name: "Content",
+      component: () => import("../views/Content.vue"),
     },
   ],
 });
