@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .bg-content {
+    @apply bg-[#11091A];
+  }
+
+  .bg-primary-gray {
+    @apply bg-[#5B5B6B];
+  }
+
+  .bg-primary-green {
+    @apply bg-[#DFF0D8];
+  }
+
+  .bg-secondary-green {
+    @apply bg-[#3ADF36];
+  }
+
+  .text-primary-gray {
+    @apply text-[#5B5B6B];
+  }
+
+  .text-primary-green {
+    @apply text-[#3ADF36];
+  }
+
+  .bg-primary-red {
+    @apply bg-[#F2DEDE];
+  }
+
+  .text-primary-red {
+    @apply text-[#B94A48];
+  }
+
+  .card-one {
+    @apply bg-[#D9D9D9] rounded-lg flex flex-col justify-start h-96;
+  }
+
+  .card-two {
+    @apply bg-[#231F3C] rounded-lg flex flex-col justify-start h-1/2;
+  }
+
+  .card-one-title {
+    @apply bg-[#2C2C48] rounded-t-lg text-center py-3 font-normal text-base;
+  }
+
+  .card-two-title {
+    @apply bg-[#D9D9D9] rounded-t-lg text-center py-3 font-normal text-base;
+  }
+}

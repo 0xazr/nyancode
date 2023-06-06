@@ -14,10 +14,46 @@ export const useApp = defineStore({
     temp: {
       selected_types: [],
       keys: [],
+      text: "",
     },
     algo: Algo,
+    search: "",
   }),
-  actions: {},
+  actions: {
+    setAlgo(name) {
+      let algo = this.temp.selected_types.find((item) => item == name);
+      if (algo == undefined) {
+        this.temp.selected_types.push({ name });
+      } else {
+        this.temp.selected_types = this.temp.selected_types.filter(
+          (item) => item != name
+        );
+      }
+    },
+    findKey(name) {
+      let bool = false;
+      let algo = this.algo.find((item) => item.name == name);
+      if (algo.key == true) {
+        bool = true;
+      }
+      return bool;
+    },
+    findAlgo(name) {
+      let bool = false;
+      let algo = this.temp.selected_types.find((item) => item.name == name);
+      if (algo != undefined) {
+        bool = true;
+      }
+      return bool;
+    },
+    deleteAlgo(name) {
+      this.temp.selected_types = this.temp.selected_types.filter(
+        (item) => item.name != name
+      );
+      console.log(this.temp.selected_types);
+    },
+    hideAlgo(name) {},
+  },
 });
 
 export const useSocketIO = defineStore({
