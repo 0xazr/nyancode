@@ -47,7 +47,7 @@
             class="flex flex-wrap items-center justify-center mx-4 space-x-3 space-y-2 overflow-y-auto"
           >
             <div
-              class="px-3 py-2 font-normal text-center cursor-pointer font-poppins rounded-xl"
+              class="px-3 py-2 font-medium text-center cursor-pointer font-poppins rounded-xl"
               :class="{
                 'bg-primary-gray': app.findAlgo(algo.name) == false,
                 'bg-secondary-green': app.findAlgo(algo.name) == true,
@@ -103,37 +103,13 @@
           >
             <div class="flex flex-row items-center justify-between">
               <div
-                class="text-xs font-bold"
+                class="text-xs font-bold font-poppins"
                 :class="{
                   'text-primary-green': greenColor(index),
                   'text-primary-red': redColor(item.name, index),
                 }"
               >
                 {{ item.name.toUpperCase() }}
-              </div>
-              <div class="flex flex-row justify-center items-center">
-                <label :for="`type_algo_${index}`" class="text-xs"
-                  >Type:
-                </label>
-                <select
-                  :name="`type_algo_${index}`"
-                  :id="`type_algo_${index}`"
-                  v-model="app.temp.selected_types[index].type"
-                  class="border-0 text-xs focus:border-0 focus:ring-0 -my-2"
-                  :class="{
-                    'bg-primary-green': greenColor(index),
-                    'bg-primary-red': redColor(item.name, index),
-                  }"
-                >
-                  <option
-                    class="-my-2 -py-2"
-                    v-for="(type, index) in returnType(item.name)"
-                    :key="index"
-                    :value="type"
-                  >
-                    {{ type }}
-                  </option>
-                </select>
               </div>
               <div class="flex flex-row space-x-2">
                 <svg
@@ -170,15 +146,38 @@
                 </svg>
               </div>
             </div>
-            <input
-              type="text"
-              :name="`input-${item.name}`"
-              :id="`input-${item.name}`"
-              class="block bg-white rounded-sm py-1 px-0 w-full text-sm text-gray-900 bg-transparent border-0 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#3ADF36] peer"
-              placeholder="Key"
-              v-if="app.findKey(item.name)"
-              v-model="app.temp.keys[index]"
-            />
+            <div
+              class="flex flex-row justify-between items-center space-x-1 py-2"
+            >
+              <select
+                :name="`type_algo_${index}`"
+                :id="`type_algo_${index}`"
+                v-model="app.temp.selected_types[index].type"
+                class="border-0 text-xs focus:border-0 focus:ring-0 -my-2 rounded-lg py-1.5 shadow-lg"
+              >
+                <!-- :class="{
+                    'bg-primary-green': greenColor(index),
+                    'bg-primary-red': redColor(item.name, index),
+                  }" -->
+                <option
+                  class=""
+                  v-for="(type, index) in returnType(item.name)"
+                  :key="index"
+                  :value="type"
+                >
+                  {{ type }}
+                </option>
+              </select>
+              <input
+                type="text"
+                :name="`input-${item.name}`"
+                :id="`input-${item.name}`"
+                class="block bg-white rounded-lg py-1 px-2 w-full text-sm text-gray-900 bg-transparent border-0 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#3ADF36] peer shadow-lg"
+                placeholder="Key"
+                v-if="app.findKey(item.name)"
+                v-model="app.temp.keys[index]"
+              />
+            </div>
           </div>
           <hr />
         </div>
