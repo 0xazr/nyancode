@@ -1,5 +1,5 @@
 <template>
-  <footer class="bottom-0 w-full h-20 p-6 py-4 text-gray-300 bg-gray-900">
+  <footer class="bottom-0 w-full p-6 text-gray-300 bg-gray-900">
     <div class="flex justify-center w-full max-w-screen-xl mx-auto">
       <div class="flex flex-row items-center text-poppins">
         <span class="text-2xl font-bold text-purple-500">nyan</span

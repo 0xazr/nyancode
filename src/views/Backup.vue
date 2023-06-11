@@ -1,7 +1,11 @@
 <template>
+  <img
+    class="absolute w-full h-full overflow-hidden -z-10"
+    src="../assets/bg-new.png"
+    alt="background"
+  />
   <headers />
   <div class="bg-container">
-    <img class="bg-image" src="../assets/bg-new.png" alt="background" />
     <div class="text-white text-poppins">
       <h1 class="font-semibold text-5xl absolute top-[180px] left-[230px]">
         MULTIPLE DECODER
