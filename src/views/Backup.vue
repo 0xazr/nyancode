@@ -2,7 +2,7 @@
   <headers />
   <div class="bg-container">
     <img class="bg-image" src="../assets/bg-new.png" alt="background" />
-    <div class="text-poppins text-white">
+    <div class="text-white text-poppins">
       <h1 class="font-semibold text-5xl absolute top-[180px] left-[230px]">
         MULTIPLE DECODER
       </h1>
@@ -13,7 +13,7 @@
         Decoder With Various Advanced Options
       </p>
       <p
-        class="font-semibold text-2xl absolute top-80 left-60 ml-20 mt-40 underline"
+        class="absolute mt-40 ml-20 text-2xl font-semibold underline top-80 left-60"
       >
         LET'S GET STARTED!
       </p>
@@ -46,64 +46,64 @@
         >
           MEET OUR TEAMS
         </h1>
-        <div class="flex gap-14 absolute -top-96 w-full justify-center">
+        <div class="absolute flex justify-center w-full gap-14 -top-96">
           <div
-            class="relative bg-gray-400 w-64 h-80 rounded-lg border border-transparent"
+            class="relative w-64 bg-gray-400 border border-transparent rounded-lg h-80"
           >
             <div
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             >
               <div class="flex flex-col scale-125">
                 <img src="../assets/yuni.png" alt="yuni" />
-                <p class="text-base text-poppins text-white">
+                <p class="text-base text-white text-poppins">
                   Midyanisa Yuniar
                 </p>
-                <p class="text-base text-poppins text-white">5027211025</p>
+                <p class="text-base text-white text-poppins">5027211025</p>
               </div>
             </div>
           </div>
           <div
-            class="relative bg-gray-400 w-64 h-80 rounded-lg border border-transparent"
+            class="relative w-64 bg-gray-400 border border-transparent rounded-lg h-80"
           >
             <div
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             >
               <div class="flex flex-col scale-125">
                 <img src="../assets/azril.png" alt="azril" />
-                <p class="text-base text-poppins text-white">
+                <p class="text-base text-white text-poppins">
                   M. Azril Fathoni
                 </p>
-                <p class="text-base text-poppins text-white">5027211002</p>
+                <p class="text-base text-white text-poppins">5027211002</p>
               </div>
             </div>
           </div>
           <div
-            class="relative bg-gray-400 w-64 h-80 rounded-lg border border-transparent"
+            class="relative w-64 bg-gray-400 border border-transparent rounded-lg h-80"
           >
             <div
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             >
               <div class="flex flex-col scale-125">
                 <img src="../assets/icha.png" alt="icha" />
-                <p class="text-base text-poppins text-white">
+                <p class="text-base text-white text-poppins">
                   Tarisha Syira M.P
                 </p>
-                <p class="text-base text-poppins text-white">5027211061</p>
+                <p class="text-base text-white text-poppins">5027211061</p>
               </div>
             </div>
           </div>
           <div
-            class="relative bg-gray-400 w-64 h-80 rounded-lg border border-transparent"
+            class="relative w-64 bg-gray-400 border border-transparent rounded-lg h-80"
           >
             <div
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             >
               <div class="flex flex-col scale-125">
                 <img src="../assets/dhea.png" alt="dhea" />
-                <p class="text-base text-poppins text-white">
+                <p class="text-base text-white text-poppins">
                   Dhea Arfryza A.P
                 </p>
-                <p class="text-base text-poppins text-white">5027211013</p>
+                <p class="text-base text-white text-poppins">5027211013</p>
               </div>
             </div>
           </div>
