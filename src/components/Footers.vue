@@ -1,9 +1,9 @@
 <template>
-  <footer class="bg-gray-900 text-gray-300 h-20 p-6 py-4 bottom-0 w-full">
-    <div class="w-full max-w-screen-xl mx-auto flex justify-center">
-      <div class="items-center flex flex-row text-poppins">
-        <span class="text-purple-500 font-bold text-2xl">nyan</span
-        ><span class="text-white font-bold text-2xl">code</span>
+  <footer class="bottom-0 w-full h-20 p-6 py-4 text-gray-300 bg-gray-900">
+    <div class="flex justify-center w-full max-w-screen-xl mx-auto">
+      <div class="flex flex-row items-center text-poppins">
+        <span class="text-2xl font-bold text-purple-500">nyan</span
+        ><span class="text-2xl font-bold text-white">code</span>
         <img class="meong" src="../assets/meong.png" alt="meong" />
         <span
           class="block text-sm text-gray-500 sm:text-center dark:text-gray-400"

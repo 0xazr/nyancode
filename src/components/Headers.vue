@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-gray-900 p-6 h-20 top-0">
-    <div class="flex flex-row justify-between items-center">
+  <header class="top-0 h-20 p-6 bg-gray-900">
+    <div class="flex flex-row items-center justify-between">
       <div class="flex flex-row text-3xl font-bold font-poppins">
         <span class="text-purple-500">nyan</span
         ><span class="text-white">code</span>
