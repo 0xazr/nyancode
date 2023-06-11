@@ -31,26 +31,38 @@ export default {
     "app.temp": {
       handler() {
         let algo = [];
-        for (let i = 0; i < this.app.algo.length; i++) {
-          if (this.app.algo[i].key) {
-            if (this.app.temp.selected_types[i] && this.app.temp.keys[i]) {
-              algo.push({
-                name: this.app.algo[i].name,
-                type: this.app.temp.selected_types[i],
-                key: this.app.temp.keys[i],
-              });
+        if (this.app.temp.selected_types.length != 0) {
+          for (let i = 0; i < this.app.temp.selected_types.length; i++) {
+            if (this.app.findKey(this.app.temp.selected_types[i].name)) {
+              if (this.app.temp.selected_types[i] && this.app.temp.keys[i]) {
+                algo.push({
+                  name: this.app.temp.selected_types[i].name,
+                  type: this.app.temp.selected_types[i].type,
+                  key: this.app.temp.keys[i],
+                });
+              }
+            } else {
+              if (this.app.temp.selected_types[i]) {
+                algo.push({
+                  name: this.app.temp.selected_types[i].name,
+                  type: this.app.temp.selected_types[i].type,
+                });
+              }
             }
-          } else if (this.app.temp.selected_types[i]) {
-            algo.push({
-              name: this.app.algo[i].name,
-              type: this.app.temp.selected_types[i],
-            });
           }
         }
         this.app.req.algo = algo;
+        this.app.req.text = this.app.temp.text;
         if (this.app.req.text != "") {
+          console.log(this.app.req);
           this.socket.emitUIToServer(this.socket.emitter.fe2be, this.app.req);
         }
+      },
+      deep: true,
+    },
+    "app.req.text": {
+      handler() {
+        // if(this.app.req)
       },
       deep: true,
     },
