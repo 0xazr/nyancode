@@ -3,13 +3,9 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import { useApp, useSocketIO } from "./store/index";
 
 export default {
-  components: {
-    HelloWorld,
-  },
   setup() {
     const app = useApp();
     const socket = useSocketIO();

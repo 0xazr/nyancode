@@ -17,12 +17,7 @@ const router = createRouter({
       path: "/about",
       name: "about",
       component: () => import("../views/About.vue"),
-    },
-    {
-      path: "/coba",
-      name: "coba",
-      component: () => import("../components/coba.vue"),
-    },
+    }
   ],
 });
 
