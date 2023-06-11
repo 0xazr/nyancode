@@ -6,10 +6,28 @@
         ><span class="text-white">code</span>
         <img class="meong" src="../assets/meong.png" alt="meong" />
       </div>
-      <div class="flex flex-row items-center justify-center space-x-4">
-        <MenuCard title="Home" to="/" />
-        <MenuCard title="Encoded" to="/encoded" />
-        <MenuCard title="Decoded" to="/dncoded" />
+      <div class="flex flex-row items-center justify-center space-x-6">
+        <MenuCard
+          title="Home"
+          to="/"
+          :class="{
+            'text-white border-b-2 border-white': $route.path == `/`,
+          }"
+        />
+        <MenuCard
+          title="Tools"
+          to="/tools"
+          :class="{
+            'text-white border-b-2 border-white': $route.path == `/tools`,
+          }"
+        />
+        <MenuCard
+          title="About Us"
+          to="/about"
+          :class="{
+            'text-white border-b-2 border-white': $route.path == `/about`,
+          }"
+        />
       </div>
     </div>
   </header>
