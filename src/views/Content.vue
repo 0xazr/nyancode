@@ -43,7 +43,7 @@
               />
             </div>
             <div
-              class="flex flex-wrap items-center justify-center mx-4 space-x-3 space-y-2 overflow-y-auto"
+              class="flex flex-wrap items-center justify-center mx-4 space-x-3 space-y-2 overflow-y-auto max-h-64"
             >
               <div
                 class="px-3 py-2 font-medium text-center cursor-pointer font-poppins rounded-xl"
@@ -242,9 +242,7 @@ export default {
   },
   methods: {
     notHash() {
-      return (this.find = this.app.algo.filter(
-        (item) => item.type[0] != "hash"
-      ));
+      return (this.find = this.app.algo);
     },
     returnType(name) {
       let temp = {};
