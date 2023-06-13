@@ -1,5 +1,5 @@
 class Base32 {
-  static encode(text) {
+  encode(text) {
     const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
     let encoded = "";
@@ -21,7 +21,7 @@ class Base32 {
     return encoded;
   }
 
-  static decode(encoded) {
+  decode(encoded) {
     const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
 
@@ -40,7 +40,7 @@ class Base32 {
     return decoded;
   }
 
-  static decimalToBinary(decimal, padding) {
+  decimalToBinary(decimal, padding) {
     let binary = decimal.toString(2);
 
     while (binary.length < padding) {

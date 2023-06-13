@@ -1,5 +1,5 @@
 class Keccak224 {
-  static hash(message) {
+  hash(message) {
     const blockSize = 144;
     const rate = 1152;
     const capacity = blockSize - rate;
@@ -25,7 +25,7 @@ class Keccak224 {
     return hash;
   }
 
-  static padMessage(message, rate) {
+  padMessage(message, rate) {
     const paddedMessage = new Uint8Array(
       Math.ceil((message.length + 1) / rate) * rate
     );
@@ -36,13 +36,13 @@ class Keccak224 {
     return paddedMessage;
   }
 
-  static xorState(state, block) {
+  xorState(state, block) {
     for (let i = 0; i < state.length; i++) {
       state[i] ^= block[i];
     }
   }
 
-  static permutation(state) {
+  permutation(state) {
     const roundConstants = [
       0x0000000000000001n,
       0x0000000000008082n,
@@ -88,11 +88,12 @@ class Keccak224 {
       }
       for (let x = 0; x < 5; x++) {
         d[x] =
-          c[(x + 4) % 5] ^ ((c[(x + 1) % 5] << 1n) | (c[(x + 1) % 5] >> 7n));
+          BigInt(c[(x + 4) % 5]) ^
+          ((BigInt(c[(x + 1) % 5]) << 1n) | (BigInt(c[(x + 1) % 5]) >> 7n));
       }
       for (let x = 0; x < 5; x++) {
         for (let y = 0; y < 5; y++) {
-          state[x + 5 * y] ^= d[x];
+          state[x + 5 * y] ^= BigInt(d[x]);
         }
       }
 

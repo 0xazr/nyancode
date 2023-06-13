@@ -123,6 +123,7 @@ class Generate {
         case "hmac SHA512":
           respon = CryptoJS.HmacSHA512(MESSAGE, key).toString();
           break;
+
         case "hmac SHA3":
           respon = CryptoJS.HmacSHA3(MESSAGE, key).toString();
           break;
@@ -132,7 +133,7 @@ class Generate {
           break;
 
         case "hex string":
-          if (ALGO[i].type == "toStr") {
+          if (ALGO[i].type == "to String") {
             respon = algo.HexString.hex2string(MESSAGE);
           } else {
             respon = algo.HexString.string2hex(MESSAGE);
@@ -145,6 +146,34 @@ class Generate {
           } else {
             respon = algo.Base64.decode(MESSAGE);
           }
+          break;
+
+        case "Base32":
+          if (ALGO[i].type == "encrypt") {
+            respon = algo.Base32.encode(MESSAGE);
+          } else {
+            respon = algo.Base32.decode(MESSAGE);
+          }
+          break;
+
+        case "Keccak224":
+          respon = algo.Keccak224.hash(MESSAGE);
+          break;
+
+        case "Keccak256":
+          respon = algo.Keccak256.hash(MESSAGE);
+          break;
+
+        case "Keccak384":
+          respon = algo.Keccak384.hash(MESSAGE);
+          break;
+
+        case "Keccak512":
+          respon = algo.Keccak512.hash(MESSAGE);
+          break;
+
+        case "SHA224":
+          respon = algo.SHA224.digest(MESSAGE);
           break;
 
         case "Rot 13":

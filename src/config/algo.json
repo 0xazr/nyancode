@@ -15,6 +15,11 @@
     "key": false
   },
   {
+    "name": "SHA224",
+    "type": ["hash"],
+    "key": false
+  },
+  {
     "name": "SHA512",
     "type": ["hash"],
     "key": false
@@ -76,7 +81,7 @@
   },
   {
     "name": "hex string",
-    "type": ["toStr", "toHex"],
+    "type": ["to String", "to Hex"],
     "key": false
   },
   {
@@ -96,6 +101,11 @@
   },
   {
     "name": "Base64",
+    "type": ["encrypt", "decrypt"],
+    "key": false
+  },
+  {
+    "name": "Base32",
     "type": ["encrypt", "decrypt"],
     "key": false
   },

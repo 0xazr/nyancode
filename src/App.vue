@@ -58,7 +58,9 @@ export default {
     },
     "app.req.text": {
       handler() {
-        // if(this.app.req)
+        if (this.app.req.text == "") {
+          this.app.respon = "";
+        }
       },
       deep: true,
     },

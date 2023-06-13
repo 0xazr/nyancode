@@ -151,6 +151,7 @@
                   :id="`type_algo_${index}`"
                   v-model="app.temp.selected_types[index].type"
                   class="border-0 text-xs focus:border-0 focus:ring-0 -my-2 rounded-lg py-1.5 shadow-lg"
+                  v-if="app.findKey(item.name)"
                 >
                   <!-- :class="{
                     'bg-primary-green': greenColor(index),
@@ -164,6 +165,19 @@
                   >
                     {{ type }}
                   </option>
+                </select>
+                <select
+                  :name="`type_algo_${index}`"
+                  :id="`type_algo_${index}`"
+                  v-model="app.temp.selected_types[index].type"
+                  class="border-0 text-xs focus:border-0 focus:ring-0 -my-2 rounded-lg py-1.5 shadow-lg"
+                  v-if="
+                    !app.findKey(item.name)
+                      ? (app.temp.selected_types[index].type = `hash`)
+                      : ''
+                  "
+                >
+                  <option value="hash">hash</option>
                 </select>
                 <input
                   type="text"
@@ -185,10 +199,10 @@
               Input
             </div>
             <input
-              type="text"
+              type="textarea"
               name="input"
               id="input"
-              class="block mx-4 py-2.5 px-0 text-sm text-primary-gray font-normal bg-transparent border-0 border-gray-300 appearance-none dark:text-white focus:outline-none focus:ring-0 peer overflow-auto p-2"
+              class="mx-4 py-2.5 px-0 text-sm text-primary-gray font-normal bg-transparent border-0 border-gray-300 appearance-none dark:text-white focus:outline-none focus:ring-0 peer flow-root p-2 break-words"
               v-model="app.temp.text"
               placeholder="Input your text here."
             />
@@ -198,7 +212,7 @@
               Output
             </div>
             <p
-              class="mx-4 py-2.5 px-0 text-sm text-primary-gray font-normal bg-transparent border-0 border-gray-300 appearance-none dark:text-white focus:outline-none focus:ring-0 peer flow-root overflow-auto"
+              class="mx-4 py-2.5 px-0 text-sm text-primary-gray font-normal bg-transparent border-0 border-gray-300 appearance-none dark:text-white focus:outline-none focus:ring-0 peer flow-root break-words"
             >
               {{
                 app.respon == ""
